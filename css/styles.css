@@ -12,6 +12,8 @@
     --modal-overlay: #2e2f4266;
     --hero-background: #2e2f42b2;
     --block-hover: #2E2F4214;
+    --modal-color: #FCFCFC;
+
 
 
 }
@@ -101,11 +103,24 @@ p, h1, h2, h3, h4, h5, ul {
 } 
 
 .site-nav .link {
+    position: relative;
+
     color: var(--dark);
     font-weight: 500;
     text-decoration: none;
     padding: 24px 0;
     display: block;
+}
+
+.site-nav .link.current::after {
+    position: absolute;
+    bottom: 0;
+    display: block;
+    width: 100%;
+    height: 4px;
+    border-radius: 2px;
+    background-color: currentColor;
+    content: '';
 }
 
 .site-nav .link:hover,
@@ -126,12 +141,14 @@ p, h1, h2, h3, h4, h5, ul {
 }
 
 .addres-contact .link  {
+
     color: var(--text);
     text-decoration: none;
     font-style: normal;
     padding: 24px 0;
     display: block;
 }
+
 
 .addres-contact .link:hover,
 .addres-contact .link:focus {
@@ -379,13 +396,25 @@ p, h1, h2, h3, h4, h5, ul {
     flex-wrap: wrap;
     gap: 48px 24px;
     margin-top: 60px;
-    
-    
+
 }
-    
+
+   
 .block-photo {
     flex-basis: calc((100% - 48px) / 3);
     height: 420px;
+}
+
+.block-photo:hover {
+        border: 1px solid #F4F4FD;
+        box-shadow: 0px 1px 6px rgba(46, 47, 66, 0.08),
+        0px 1px 1px rgba(46, 47, 66, 0.16),
+        0px 2px 1px rgba(46, 47, 66, 0.08);
+}
+
+.block-image {
+    position: relative;
+    overflow: hidden;
 }
 
 .photo-link {
@@ -399,6 +428,27 @@ p, h1, h2, h3, h4, h5, ul {
     0px 1px 6px rgba(46, 47, 66, 0.08), 
     0px 1px 1px rgba(46, 47, 66, 0.16), 
     0px 2px 1px rgba(46, 47, 66, 0.08);
+}
+
+.block-photo-description {
+    color: var(--button-noactive);
+    background-color: var(--primary-brand);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding: 40px 32px;
+    transform: translateY(100%);
+    transition: transform 250ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+
+.block-image:hover .block-photo-description
+ {
+    transform: translateY(0);
+
 }
 
 .title-section {
@@ -609,7 +659,68 @@ width: 35%;
     background-color: var(--pressed-state);
 }
 
+.backdropt {
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    padding: 20px 0;
+    background-color: rgba(46, 47, 66, 0.4);
+    transition: opacity 500ms, visibility 500ms;
+}
 
+.backdropt.is-hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.backdropt.is-hidden .modal {
+    transform: scale(0);
+}
+
+.modal {
+    position: relative;
+    width: 100%;
+    max-width: 408px;
+    max-height: 576px;
+    height: 100%;
+    background-color: var(--modal-color);
+    transition: transform (-50%, -50%); 
+}
+
+.modal-close {
+    position: absolute;
+    top: 24px;
+    right: 24px;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: var(--accent);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+
+        align-items: center;
+            justify-content: center;
+
+}
+
+
+.button-modal {
+ width: 24px;
+ height: 24px;
+
+
+
+
+}
+
+.modal-close {
+
+}
 
 
 
