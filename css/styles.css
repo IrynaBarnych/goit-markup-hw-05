@@ -451,6 +451,11 @@ p, h1, h2, h3, h4, h5, ul {
 
 }
 
+.description-hover {
+    color: var(--light);
+    text-align: left;
+}
+
 .title-section {
 padding-top: 32px;
 padding-bottom: 32px;
@@ -702,9 +707,9 @@ width: 35%;
     border-radius: 50%;
     background: var(--accent);
     border: 1px solid rgba(0, 0, 0, 0.1);
-
-        align-items: center;
-            justify-content: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
 }
 
